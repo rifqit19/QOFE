@@ -12,6 +12,8 @@
 		4FA9F03B29B4B385001E9816 /* BasketListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03A29B4B385001E9816 /* BasketListener.swift */; };
 		4FA9F03D29B4C4E7001E9816 /* OrderBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03C29B4C4E7001E9816 /* OrderBasketView.swift */; };
 		4FA9F03F29B4CD73001E9816 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03E29B4CD73001E9816 /* Extension.swift */; };
+		4FA9F04129B4DA46001E9816 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F04029B4DA46001E9816 /* CheckoutView.swift */; };
+		4FA9F04329B4ECBC001E9816 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F04229B4ECBC001E9816 /* Order.swift */; };
 		4FDDE9E529B3797A0057B6CB /* QOFEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */; };
 		4FDDE9E729B3797A0057B6CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E629B3797A0057B6CB /* HomeView.swift */; };
 		4FDDE9E929B3797C0057B6CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E829B3797C0057B6CB /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		4FA9F03A29B4B385001E9816 /* BasketListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketListener.swift; sourceTree = "<group>"; };
 		4FA9F03C29B4C4E7001E9816 /* OrderBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBasketView.swift; sourceTree = "<group>"; };
 		4FA9F03E29B4CD73001E9816 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		4FA9F04029B4DA46001E9816 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		4FA9F04229B4ECBC001E9816 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		4FDDE9E129B3797A0057B6CB /* QOFE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QOFE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QOFEApp.swift; sourceTree = "<group>"; };
 		4FDDE9E629B3797A0057B6CB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			children = (
 				4FDDE9F629B39D650057B6CB /* Drink.swift */,
 				4FA9F03829B4A826001E9816 /* OrderBasket.swift */,
+				4FA9F04229B4ECBC001E9816 /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				4FDDE9E629B3797A0057B6CB /* HomeView.swift */,
 				4FDDEA0929B46EEA0057B6CB /* DrinkDetailView.swift */,
 				4FA9F03C29B4C4E7001E9816 /* OrderBasketView.swift */,
+				4FA9F04029B4DA46001E9816 /* CheckoutView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,7 +314,9 @@
 				4FDDEA0729B3CDA20057B6CB /* DrinkListener.swift in Sources */,
 				4FA9F03F29B4CD73001E9816 /* Extension.swift in Sources */,
 				4FA9F03929B4A826001E9816 /* OrderBasket.swift in Sources */,
+				4FA9F04129B4DA46001E9816 /* CheckoutView.swift in Sources */,
 				4FDDE9F729B39D650057B6CB /* Drink.swift in Sources */,
+				4FA9F04329B4ECBC001E9816 /* Order.swift in Sources */,
 				4FDDE9F929B3A27E0057B6CB /* FirebaseReference.swift in Sources */,
 				4FDDE9E529B3797A0057B6CB /* QOFEApp.swift in Sources */,
 			);
