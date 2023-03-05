@@ -80,6 +80,7 @@ struct DrinkDetailView_Previews: PreviewProvider {
 
 struct OrderButton: View{
     
+    @ObservedObject var basketListener = BasketListener()
     @Binding var showAlert : Bool
     
     var drink: Drink
@@ -87,7 +88,8 @@ struct OrderButton: View{
     var body: some View{
         
         Button(action: {
-            showAlert.toggle()
+            self.showAlert.toggle()
+            self.addItemtoBasket()
         }){
             Text("Add to basket")
         }
@@ -96,7 +98,25 @@ struct OrderButton: View{
         .font(.headline)
         .background(Color.blue)
         .cornerRadius(10)
+    }
+    
+    private func addItemtoBasket(){
         
+        var orderBasket: OrderBasket!
+        
+        if self.basketListener.orderBasket != nil{
+            orderBasket = self.basketListener.orderBasket
+        }else{
+            
+            orderBasket = OrderBasket()
+            orderBasket.ownerId = "123"
+            orderBasket.id = UUID().uuidString
+            
+        }
+        
+        orderBasket.add(self.drink)
+        orderBasket.saveBasketToFirestore()
+
         
     }
 }

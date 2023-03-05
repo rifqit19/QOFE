@@ -11,6 +11,7 @@ import Foundation
 struct HomeView: View {
     
     @ObservedObject var drinkListener = DrinkListener()
+    @State private var showingBasket = false
     
     var categories: [String : [Drink]]{
         .init(grouping: drinkListener.drinks, by: {$0.category.rawValue})
@@ -43,10 +44,13 @@ struct HomeView: View {
                     ,trailing:
                         Button(action: {
                             //code
-                            print("basket")
+                            self.showingBasket.toggle()
                         }, label: {
                             Image("basket").foregroundColor(.blue)
                         })
+                        .sheet(isPresented: $showingBasket){
+                            OrderBasketView()
+                        }
                 )
             
         }
