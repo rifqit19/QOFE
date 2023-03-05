@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45C5A76A020BE10E0F30BC0C /* Pods_QOFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECCA9F460F8C74E09333B50 /* Pods_QOFE.framework */; };
+		4FDDE9E529B3797A0057B6CB /* QOFEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */; };
+		4FDDE9E729B3797A0057B6CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E629B3797A0057B6CB /* HomeView.swift */; };
+		4FDDE9E929B3797C0057B6CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E829B3797C0057B6CB /* Assets.xcassets */; };
+		4FDDE9EC29B3797C0057B6CB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDE9EB29B3797C0057B6CB /* Preview Assets.xcassets */; };
+		4FDDE9F529B392020057B6CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDE9F429B392020057B6CB /* GoogleService-Info.plist */; };
+		4FDDE9F729B39D650057B6CB /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9F629B39D650057B6CB /* Drink.swift */; };
+		4FDDE9F929B3A27E0057B6CB /* FirebaseReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9F829B3A27E0057B6CB /* FirebaseReference.swift */; };
+		4FDDE9FB29B3A3E90057B6CB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9FA29B3A3E90057B6CB /* Constants.swift */; };
+		4FDDE9FF29B3B0710057B6CB /* DrinkRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9FE29B3B0710057B6CB /* DrinkRow.swift */; };
+		4FDDEA0529B3C5B80057B6CB /* DrinkItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDEA0429B3C5B80057B6CB /* DrinkItem.swift */; };
+		4FDDEA0729B3CDA20057B6CB /* DrinkListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDEA0629B3CDA20057B6CB /* DrinkListener.swift */; };
+		4FDDEA0A29B46EEA0057B6CB /* DrinkDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDEA0929B46EEA0057B6CB /* DrinkDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4FDDE9E129B3797A0057B6CB /* QOFE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QOFE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QOFEApp.swift; sourceTree = "<group>"; };
+		4FDDE9E629B3797A0057B6CB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4FDDE9E829B3797C0057B6CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4FDDE9EB29B3797C0057B6CB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4FDDE9F429B392020057B6CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FDDE9F629B39D650057B6CB /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		4FDDE9F829B3A27E0057B6CB /* FirebaseReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseReference.swift; sourceTree = "<group>"; };
+		4FDDE9FA29B3A3E90057B6CB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4FDDE9FE29B3B0710057B6CB /* DrinkRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkRow.swift; sourceTree = "<group>"; };
+		4FDDEA0429B3C5B80057B6CB /* DrinkItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkItem.swift; sourceTree = "<group>"; };
+		4FDDEA0629B3CDA20057B6CB /* DrinkListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkListener.swift; sourceTree = "<group>"; };
+		4FDDEA0929B46EEA0057B6CB /* DrinkDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkDetailView.swift; sourceTree = "<group>"; };
+		7ECCA9F460F8C74E09333B50 /* Pods_QOFE.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QOFE.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7681C14A714E747B7A85BCA /* Pods-QOFE.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QOFE.debug.xcconfig"; path = "Target Support Files/Pods-QOFE/Pods-QOFE.debug.xcconfig"; sourceTree = "<group>"; };
+		FA5188C4C46E3FB8DAD84219 /* Pods-QOFE.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QOFE.release.xcconfig"; path = "Target Support Files/Pods-QOFE/Pods-QOFE.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FDDE9DE29B3797A0057B6CB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45C5A76A020BE10E0F30BC0C /* Pods_QOFE.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FDDE9D829B3797A0057B6CB = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9E329B3797A0057B6CB /* QOFE */,
+				4FDDE9E229B3797A0057B6CB /* Products */,
+				846D571BD8DB716DF06124D9 /* Pods */,
+				C24F708C30003ED415F871B1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4FDDE9E229B3797A0057B6CB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9E129B3797A0057B6CB /* QOFE.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FDDE9E329B3797A0057B6CB /* QOFE */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDEA0029B3C5250057B6CB /* Views */,
+				4FDDE9F429B392020057B6CB /* GoogleService-Info.plist */,
+				4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */,
+				4FDDE9E829B3797C0057B6CB /* Assets.xcassets */,
+				4FDDE9EA29B3797C0057B6CB /* Preview Content */,
+				4FDDE9FD29B3AB2E0057B6CB /* Model */,
+				4FDDE9FC29B3AB220057B6CB /* Helpers */,
+				4FDDE9FA29B3A3E90057B6CB /* Constants.swift */,
+				4FDDEA0829B3CDAE0057B6CB /* Firebase Listener */,
+			);
+			path = QOFE;
+			sourceTree = "<group>";
+		};
+		4FDDE9EA29B3797C0057B6CB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9EB29B3797C0057B6CB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4FDDE9FC29B3AB220057B6CB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9F829B3A27E0057B6CB /* FirebaseReference.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4FDDE9FD29B3AB2E0057B6CB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9F629B39D650057B6CB /* Drink.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4FDDEA0029B3C5250057B6CB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDEA0329B3C53C0057B6CB /* Row */,
+				4FDDEA0229B3C5320057B6CB /* Item */,
+				4FDDEA0129B3C52D0057B6CB /* View */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4FDDEA0129B3C52D0057B6CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9E629B3797A0057B6CB /* HomeView.swift */,
+				4FDDEA0929B46EEA0057B6CB /* DrinkDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4FDDEA0229B3C5320057B6CB /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDEA0429B3C5B80057B6CB /* DrinkItem.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		4FDDEA0329B3C53C0057B6CB /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDE9FE29B3B0710057B6CB /* DrinkRow.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		4FDDEA0829B3CDAE0057B6CB /* Firebase Listener */ = {
+			isa = PBXGroup;
+			children = (
+				4FDDEA0629B3CDA20057B6CB /* DrinkListener.swift */,
+			);
+			path = "Firebase Listener";
+			sourceTree = "<group>";
+		};
+		846D571BD8DB716DF06124D9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D7681C14A714E747B7A85BCA /* Pods-QOFE.debug.xcconfig */,
+				FA5188C4C46E3FB8DAD84219 /* Pods-QOFE.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C24F708C30003ED415F871B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7ECCA9F460F8C74E09333B50 /* Pods_QOFE.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FDDE9E029B3797A0057B6CB /* QOFE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FDDE9EF29B3797C0057B6CB /* Build configuration list for PBXNativeTarget "QOFE" */;
+			buildPhases = (
+				4DFD5ADF347ABF2CE43B5CA6 /* [CP] Check Pods Manifest.lock */,
+				4FDDE9DD29B3797A0057B6CB /* Sources */,
+				4FDDE9DE29B3797A0057B6CB /* Frameworks */,
+				4FDDE9DF29B3797A0057B6CB /* Resources */,
+				C9721DF7C962AA35D6C0E6CF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QOFE;
+			productName = QOFE;
+			productReference = 4FDDE9E129B3797A0057B6CB /* QOFE.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FDDE9D929B3797A0057B6CB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					4FDDE9E029B3797A0057B6CB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = 4FDDE9DC29B3797A0057B6CB /* Build configuration list for PBXProject "QOFE" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4FDDE9D829B3797A0057B6CB;
+			productRefGroup = 4FDDE9E229B3797A0057B6CB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FDDE9E029B3797A0057B6CB /* QOFE */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FDDE9DF29B3797A0057B6CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDDE9EC29B3797C0057B6CB /* Preview Assets.xcassets in Resources */,
+				4FDDE9F529B392020057B6CB /* GoogleService-Info.plist in Resources */,
+				4FDDE9E929B3797C0057B6CB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4DFD5ADF347ABF2CE43B5CA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QOFE-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9721DF7C962AA35D6C0E6CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QOFE/Pods-QOFE-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QOFE/Pods-QOFE-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QOFE/Pods-QOFE-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FDDE9DD29B3797A0057B6CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FDDE9FB29B3A3E90057B6CB /* Constants.swift in Sources */,
+				4FDDE9FF29B3B0710057B6CB /* DrinkRow.swift in Sources */,
+				4FDDE9E729B3797A0057B6CB /* HomeView.swift in Sources */,
+				4FDDEA0529B3C5B80057B6CB /* DrinkItem.swift in Sources */,
+				4FDDEA0A29B46EEA0057B6CB /* DrinkDetailView.swift in Sources */,
+				4FDDEA0729B3CDA20057B6CB /* DrinkListener.swift in Sources */,
+				4FDDE9F729B39D650057B6CB /* Drink.swift in Sources */,
+				4FDDE9F929B3A27E0057B6CB /* FirebaseReference.swift in Sources */,
+				4FDDE9E529B3797A0057B6CB /* QOFEApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4FDDE9ED29B3797C0057B6CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4FDDE9EE29B3797C0057B6CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FDDE9F029B3797C0057B6CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7681C14A714E747B7A85BCA /* Pods-QOFE.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QOFE/Preview Content\"";
+				DEVELOPMENT_TEAM = 85TX7YS764;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiiisixxx.project.QOFE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4FDDE9F129B3797C0057B6CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA5188C4C46E3FB8DAD84219 /* Pods-QOFE.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QOFE/Preview Content\"";
+				DEVELOPMENT_TEAM = 85TX7YS764;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.qiiisixxx.project.QOFE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FDDE9DC29B3797A0057B6CB /* Build configuration list for PBXProject "QOFE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDDE9ED29B3797C0057B6CB /* Debug */,
+				4FDDE9EE29B3797C0057B6CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FDDE9EF29B3797C0057B6CB /* Build configuration list for PBXNativeTarget "QOFE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FDDE9F029B3797C0057B6CB /* Debug */,
+				4FDDE9F129B3797C0057B6CB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4FDDE9D929B3797A0057B6CB /* Project object */;
+}
