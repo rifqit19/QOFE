@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_qofe" translatesAutoresizingMaskIntoConstraints="NO" id="0Xp-By-wzh">
+                                <rect key="frame" x="149" y="707" width="244" height="145"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqr-h5-056">
+                                <rect key="frame" x="161.33333333333334" y="791.33333333333337" width="70.666666666666657" height="26.666666666666629"/>
+                                <fontDescription key="fontDescription" name="MuktaMahee-Regular" family="Mukta Mahee" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
+                                <rect key="frame" x="0.0" y="832" width="393" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qofe_logo" translatesAutoresizingMaskIntoConstraints="NO" id="NVm-d8-RwZ">
+                                <rect key="frame" x="115" y="393.33333333333331" width="163" height="65.333333333333314"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="NVm-d8-RwZ" secondAttribute="height" multiplier="15:6" id="hsC-ar-bTB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caffein in a flash" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" showsExpansionTextWhenTruncated="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bH1-yu-8cp">
+                                <rect key="frame" x="137.33333333333334" y="458.66666666666669" width="118.66666666666666" height="18.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" name="darkBrown"/>
+                        <constraints>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
+                            <constraint firstItem="bH1-yu-8cp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5yz-qg-9Bo"/>
+                            <constraint firstItem="gqr-h5-056" firstAttribute="bottom" secondItem="Bcu-3y-fUS" secondAttribute="bottom" id="9uc-oy-alX"/>
+                            <constraint firstItem="NVm-d8-RwZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CXT-lk-LiM"/>
+                            <constraint firstItem="gqr-h5-056" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CkY-Dk-wwV"/>
+                            <constraint firstItem="NVm-d8-RwZ" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="115" id="DmJ-8g-H1b"/>
+                            <constraint firstItem="0Xp-By-wzh" firstAttribute="trailing" secondItem="Bcu-3y-fUS" secondAttribute="trailing" id="Lyx-T9-ZLH"/>
+                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
+                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="NVm-d8-RwZ" secondAttribute="trailing" constant="115" id="Z7R-HR-bm5"/>
+                            <constraint firstItem="NVm-d8-RwZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="bYK-GR-MyH"/>
+                            <constraint firstItem="bH1-yu-8cp" firstAttribute="top" secondItem="NVm-d8-RwZ" secondAttribute="bottom" id="ik8-Oh-Stq"/>
+                            <constraint firstAttribute="bottom" secondItem="0Xp-By-wzh" secondAttribute="bottom" id="zCF-Wp-AZv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_qofe" width="244" height="145"/>
+        <image name="qofe_logo" width="828" height="240.66667175292969"/>
+        <namedColor name="darkBrown">
+            <color red="0.50599998235702515" green="0.35699999332427979" blue="0.35699999332427979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

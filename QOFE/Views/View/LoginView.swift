@@ -14,12 +14,15 @@ struct LoginView: View {
     @State var repeatPassword: String = ""
     
     @State var showingSignup = false
+    @State var showingFinishReg = false
     
+    @Environment(\.presentationMode) var presentationMode
+
     
     var body: some View {
         VStack{
             
-            Text("Sign In")
+            Text(showingSignup ? "Sign Up" : "Sign In")
                 .fontWeight(.heavy )
                 .font(.largeTitle)
                 .padding([.bottom, .top], 20)
@@ -46,6 +49,7 @@ struct LoginView: View {
                         .opacity(0.75)
                     
                     SecureField("Enter your password...", text: $password)
+                    
                     Divider()
                     
                     
@@ -69,7 +73,7 @@ struct LoginView: View {
                     Spacer()
                     
                     Button(action: {
-                        print("forgot pass")
+                        self.resetPassword()
                     },label:{
                         Text("Forgot Password?")
                             .foregroundColor(.gray)
@@ -82,7 +86,7 @@ struct LoginView: View {
             .padding(.horizontal, 6)
             
             Button(action: {
-                self.showingSignup ? self.registerUser() : self.loginUser()
+                self.showingSignup ? self.signUpUser() : self.loginUser()
             }, label: {
                 Text(showingSignup ? "Sign Up" : "Sign In")
                     .foregroundColor(.white)
@@ -96,18 +100,66 @@ struct LoginView: View {
             
             SignUpView(showingSignup: $showingSignup)
         }// end of vstack
+        .sheet(isPresented: $showingFinishReg) {
+            FinishRegistrationView()
+        }
     }
     
     private func loginUser(){
-        print("login")
+        if email != "" && password != "" {
+            FUser.loginUserWith(email: email, password: password) { error, isEmailVerified in
+                if error != nil{
+                    print("error loging in the user: ", error!.localizedDescription)
+                    return
+                }
+                
+//                print("user login successful, email is verified: ", isEmailVerified)
+                if FUser.currentUser() != nil && FUser.currentUser()!.onBoarding{
+                    self.presentationMode.wrappedValue.dismiss()
+                }else{
+                    self.showingFinishReg.toggle()
+                }
+                
+            }
+        }
     }
     
-    private func registerUser(){
-        print("registe")
+    private func signUpUser(){
+        if email != "" && password != "" && repeatPassword != ""{
+            if password == repeatPassword{
+                
+                FUser.registerUserWith(email: email, password: password) { error in
+                    if error != nil{
+                        print("Error registering user: ", error!.localizedDescription)
+                        return
+                    }
+                    print("user has been created")
+                    // go back to the app
+                    //check ig user onboarding is done
+                }
+
+            }else{
+                print("password dont match")
+            }
+        }else{
+            print("Email and password must be set")
+        }
     }
     
     private func resetPassword (){
-        print("reset pass")
+        
+        if email != "" {
+            FUser.resetPassword(email: email) { error in
+                if error != nil {
+                    print("error sending reset password ", error?.localizedDescription)
+                    return
+                }
+                print("please check your email")
+            }
+
+        }else{
+            print("email is empty")
+        }
     }
 
 }
@@ -129,17 +181,16 @@ struct SignUpView: View{
             Spacer()
             
             HStack{
-                Text("Don't have an Account??")
+                Text(showingSignup ? "Already have an account?" :  "Don't have an Account??")
                     .foregroundColor(.gray)
                     .opacity(0.5)
                 
                 Button(action: {
                     showingSignup.toggle()
                 },label:{
-                    Text("Sign Up")
+                    Text(showingSignup ? "Sign In" : "Sign Up")
                         .foregroundColor(.blue)
                 })
-
                 
             }
         }

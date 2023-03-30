@@ -10,12 +10,14 @@
 		45C5A76A020BE10E0F30BC0C /* Pods_QOFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECCA9F460F8C74E09333B50 /* Pods_QOFE.framework */; };
 		4F3BF2D629B624C30026E196 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BF2D529B624C30026E196 /* LoginView.swift */; };
 		4F3BF2D829B655FE0026E196 /* FinishRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BF2D729B655FE0026E196 /* FinishRegistrationView.swift */; };
+		4F493ECC29D1C19D00DA8AA0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F493ECB29D1C19D00DA8AA0 /* Launch Screen.storyboard */; };
 		4FA9F03929B4A826001E9816 /* OrderBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03829B4A826001E9816 /* OrderBasket.swift */; };
 		4FA9F03B29B4B385001E9816 /* BasketListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03A29B4B385001E9816 /* BasketListener.swift */; };
 		4FA9F03D29B4C4E7001E9816 /* OrderBasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03C29B4C4E7001E9816 /* OrderBasketView.swift */; };
 		4FA9F03F29B4CD73001E9816 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03E29B4CD73001E9816 /* Extension.swift */; };
 		4FA9F04129B4DA46001E9816 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F04029B4DA46001E9816 /* CheckoutView.swift */; };
 		4FA9F04329B4ECBC001E9816 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F04229B4ECBC001E9816 /* Order.swift */; };
+		4FBF57F729C23F11007D2D52 /* FUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF57F629C23F11007D2D52 /* FUser.swift */; };
 		4FDDE9E529B3797A0057B6CB /* QOFEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */; };
 		4FDDE9E729B3797A0057B6CB /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E629B3797A0057B6CB /* HomeView.swift */; };
 		4FDDE9E929B3797C0057B6CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FDDE9E829B3797C0057B6CB /* Assets.xcassets */; };
@@ -33,12 +35,14 @@
 /* Begin PBXFileReference section */
 		4F3BF2D529B624C30026E196 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4F3BF2D729B655FE0026E196 /* FinishRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationView.swift; sourceTree = "<group>"; };
+		4F493ECB29D1C19D00DA8AA0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4FA9F03829B4A826001E9816 /* OrderBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBasket.swift; sourceTree = "<group>"; };
 		4FA9F03A29B4B385001E9816 /* BasketListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketListener.swift; sourceTree = "<group>"; };
 		4FA9F03C29B4C4E7001E9816 /* OrderBasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBasketView.swift; sourceTree = "<group>"; };
 		4FA9F03E29B4CD73001E9816 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4FA9F04029B4DA46001E9816 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		4FA9F04229B4ECBC001E9816 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		4FBF57F629C23F11007D2D52 /* FUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FUser.swift; sourceTree = "<group>"; };
 		4FDDE9E129B3797A0057B6CB /* QOFE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QOFE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FDDE9E429B3797A0057B6CB /* QOFEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QOFEApp.swift; sourceTree = "<group>"; };
 		4FDDE9E629B3797A0057B6CB /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				4FDDE9F629B39D650057B6CB /* Drink.swift */,
 				4FA9F03829B4A826001E9816 /* OrderBasket.swift */,
 				4FA9F04229B4ECBC001E9816 /* Order.swift */,
+				4FBF57F629C23F11007D2D52 /* FUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				4FA9F04029B4DA46001E9816 /* CheckoutView.swift */,
 				4F3BF2D529B624C30026E196 /* LoginView.swift */,
 				4F3BF2D729B655FE0026E196 /* FinishRegistrationView.swift */,
+				4F493ECB29D1C19D00DA8AA0 /* Launch Screen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			files = (
 				4FDDE9EC29B3797C0057B6CB /* Preview Assets.xcassets in Resources */,
 				4FDDE9F529B392020057B6CB /* GoogleService-Info.plist in Resources */,
+				4F493ECC29D1C19D00DA8AA0 /* Launch Screen.storyboard in Resources */,
 				4FDDE9E929B3797C0057B6CB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +332,7 @@
 				4FDDE9F729B39D650057B6CB /* Drink.swift in Sources */,
 				4FA9F04329B4ECBC001E9816 /* Order.swift in Sources */,
 				4FDDE9F929B3A27E0057B6CB /* FirebaseReference.swift in Sources */,
+				4FBF57F729C23F11007D2D52 /* FUser.swift in Sources */,
 				4F3BF2D629B624C30026E196 /* LoginView.swift in Sources */,
 				4FDDE9E529B3797A0057B6CB /* QOFEApp.swift in Sources */,
 			);
@@ -462,6 +470,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -493,6 +502,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

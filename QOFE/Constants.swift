@@ -8,7 +8,7 @@
 import Foundation
 
 
-public let userDefault = UserDefaults.standard
+public let userDefaults = UserDefaults.standard
 
 //Drink
 public let kID = "id"
@@ -23,6 +23,8 @@ public let kDRINKSID = "drinksIds"
 public let kOWNERID = "ownerId"
 public let kCUSTOMERID = "customerId"
 public let kAMOUNT = "amount"
+public let kCUSTOMERNAME = "customerName"
+public let kISCOMPLETED = "isCompleted"
 
 //FUser
 public let kEMAIL = "email"

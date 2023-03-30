@@ -14,6 +14,8 @@ struct FinishRegistrationView: View {
     @State var telephone = ""
     @State var address = ""
     
+    @Environment(\.presentationMode) var presentationMode
+    
     
     var body: some View {
         
@@ -39,7 +41,7 @@ struct FinishRegistrationView: View {
                 }, label: {
                     Text("Finish Registration")
                 })
-            }.disabled(self.fieldCompleted())
+            }.disabled(!self.fieldCompleted())
             
         }// end of form
     }
@@ -49,6 +51,18 @@ struct FinishRegistrationView: View {
     }
     
     private func finishRegistration(){
+        
+        let fullName = name + " " + surname
+        
+        updateCurrentUser(withValues: [kFIRSTNAME : name, kLASTNAME : surname, kFULLNAME : fullName, kFULLADDRESS : address, kPHONENUMBER : telephone, kONBOARD : true]) { error in
+            
+            if error != nil{
+                print("error updating user: ", error!.localizedDescription)
+                return
+            }
+            
+            self.presentationMode.wrappedValue.dismiss()
+        }
         
     }
 }

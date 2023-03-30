@@ -14,6 +14,8 @@ class Order: Identifiable{
     var customerId: String!
     var orderItems: [Drink] = []
     var amount: Double!
+    var customerName: String!
+    var isCompleted: Bool!
 
     
     func saveOrderToFirestore(){
@@ -44,12 +46,16 @@ func orderDictionaryFrom(_ order: Order) -> [String : Any]{
         order.id,
         order.customerId,
         allDrinkIds,
-        order.amount],
+        order.amount,
+        order.customerName,
+        order.isCompleted],
                         forKeys: [
             kID as NSCopying,
             kCUSTOMERID as NSCopying,
             kDRINKSID as NSCopying,
-            kAMOUNT as NSCopying]) as! [String : Any]
+            kAMOUNT as NSCopying,
+            kCUSTOMERNAME as NSCopying,
+            kISCOMPLETED as NSCopying,]) as! [String : Any]
     
 }
 

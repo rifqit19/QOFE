@@ -35,7 +35,9 @@ struct HomeView: View {
                     leading:
                         Button(action: {
                             //code
-                            print("logout")
+                            FUser.logoutCurrentUser { error in
+                                print("error loging out user, ", error?.localizedDescription)
+                            }
                         }, label: {
                             Text("Logout")
                         })
@@ -49,7 +51,14 @@ struct HomeView: View {
                             Image("basket").foregroundColor(.blue)
                         })
                         .sheet(isPresented: $showingBasket){
-                            OrderBasketView()
+                            if FUser.currentUser() != nil &&
+                                FUser.currentUser()!.onBoarding{
+                                OrderBasketView()
+                            }else if FUser.currentUser() != nil {
+                                FinishRegistrationView()
+                            }else{
+                                LoginView()
+                            }
                         }
                 )
             

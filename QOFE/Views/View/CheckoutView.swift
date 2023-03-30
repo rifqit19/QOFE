@@ -67,9 +67,10 @@ struct CheckoutView: View {
         
         order.amount = totalPrice
         order.id = UUID().uuidString
-        order.customerId = "123"
+        order.customerId = FUser.currentId()
         order.orderItems = self.basketListener.orderBasket.items
         order.saveOrderToFirestore()
+        
     }
     
     private func emptyBasket(){

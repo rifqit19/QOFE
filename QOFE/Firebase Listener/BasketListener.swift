@@ -17,23 +17,27 @@ class BasketListener: ObservableObject{
     }
     
     func downloadBasket(){
-        FirebaseReference(.Basket).whereField(kOWNERID, isEqualTo: "123").addSnapshotListener { (snapshot, error) in
-            
-            guard let snapshot = snapshot else {return}
-            
-            if !snapshot.isEmpty {
-                let basketData = snapshot.documents.first!.data()
+        
+        if FUser.currentUser() != nil{
+            FirebaseReference(.Basket).whereField(kOWNERID, isEqualTo: FUser.currentId()).addSnapshotListener { (snapshot, error) in
                 
-                getDrinksFromFirestore(withIds: basketData[kDRINKSID] as? [String] ?? []) { allDrinks in
+                guard let snapshot = snapshot else {return}
+                
+                if !snapshot.isEmpty {
+                    let basketData = snapshot.documents.first!.data()
                     
-                    let basket = OrderBasket()
-                    basket.ownerId = basketData[kOWNERID] as? String
-                    basket.id =  basketData[kID] as? String
-                    basket.items = allDrinks
-                    self.orderBasket = basket
+                    getDrinksFromFirestore(withIds: basketData[kDRINKSID] as? [String] ?? []) { allDrinks in
+                        
+                        let basket = OrderBasket()
+                        basket.ownerId = basketData[kOWNERID] as? String
+                        basket.id =  basketData[kID] as? String
+                        basket.items = allDrinks
+                        self.orderBasket = basket
+                    }
                 }
             }
         }
+        
     }
 }
 
@@ -75,7 +79,7 @@ func getDrinksFromFirestore(withIds: [String], completion: @escaping (_ drinkArr
                 completion(drinkArray)
             }
         }
-
+        
     }
     
 }

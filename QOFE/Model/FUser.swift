@@ -30,6 +30,17 @@ class FUser{
         onBoarding = false
     }
     
+    init(_ dictionary : NSDictionary) {
+        id = dictionary[kID] as? String ?? ""
+        email = dictionary[kEMAIL] as? String ?? ""
+        firstName = dictionary[kFIRSTNAME] as? String ?? ""
+        lastName = dictionary[kLASTNAME] as? String ?? ""
+        fullName = firstName + " " + lastName
+        fullAddress = dictionary[kFULLADDRESS] as? String ?? ""
+        phoneNumber = dictionary[kPHONENUMBER] as? String ?? ""
+        onBoarding = dictionary[kONBOARD] as? Bool ?? false
+    }
+    
     class func currentId() -> String{
         return Auth.auth().currentUser!.uid
     }
@@ -37,8 +48,8 @@ class FUser{
     class func currentUser() -> FUser?{
         
         if Auth.auth().currentUser != nil{
-            if let dictionary = userDefault.object(forKey: kCURRENTUSER){
-                return nil
+            if let dictionary = userDefaults.object(forKey: kCURRENTUSER){
+                return FUser.init(dictionary as! NSDictionary)
             }
         }
         
@@ -51,6 +62,9 @@ class FUser{
             if error == nil {
                 if authDataResult!.user.isEmailVerified{
                     //download FUser Object and save it locally
+                    downloadUserFromFirestore(userId: authDataResult!.user.uid, email: email) { error in
+                        completion(error, true)
+                    }
                 }else{
                     completion(error, false)
                 }
@@ -75,4 +89,98 @@ class FUser{
     }
     
     
+    class func resetPassword(email: String, completion: @escaping(_ error: Error?)-> Void){
+        
+        Auth.auth().sendPasswordReset(withEmail: email){ error in
+            completion(error)
+        }
+    }
+    
+    class func logoutCurrentUser(completion: (_ error: Error?)-> Void){
+        do {
+            try Auth.auth().signOut()
+            userDefaults.removeObject(forKey: kCURRENTUSER)
+            userDefaults.synchronize()
+            completion(nil)
+        }catch let error as Error{
+            completion(error)
+        }
+    }
+    
+    
+}
+
+func downloadUserFromFirestore(userId: String, email: String, completion: @escaping(_ error: Error?) -> Void){
+    
+    FirebaseReference(.User).document(userId).getDocument { snapshoot, error in
+        guard let snapshoot = snapshoot else{ return }
+        
+        if snapshoot.exists {
+            saveUserLocally(userDictionary: snapshoot.data()! as NSDictionary)
+        }else{
+            
+            let user = FUser(id: userId, email: email, firstName: "", lastName: "", phoneNumber: "")
+            saveUserLocally(userDictionary: userDictionaryFrom(user: user) as NSDictionary)
+            saveUserToFirestore(fUser: user)
+        }
+        
+        completion(error)
+    }
+}
+
+func saveUserToFirestore(fUser: FUser){
+    FirebaseReference(.User).document(fUser.id).setData(userDictionaryFrom(user: fUser)){ error in
+        
+        if error != nil{
+            print("Error creating fuser object: ", error!.localizedDescription)
+        }
+    }
+}
+
+func saveUserLocally(userDictionary: NSDictionary){
+    userDefaults.set(userDictionary, forKey: kCURRENTUSER)
+    userDefaults.synchronize()
+}
+
+func userDictionaryFrom(user: FUser) -> [String: Any] {
+    
+    return NSDictionary(objects: [
+        user.id,
+        user.email,
+        user.firstName,
+        user.lastName,
+        user.fullName,
+        user.fullAddress ?? "",
+        user.onBoarding,
+        user.phoneNumber
+    ], forKeys: [
+        kID as NSCopying,
+        kEMAIL as NSCopying,
+        kFIRSTNAME as NSCopying,
+        kLASTNAME as NSCopying,
+        kFULLNAME as NSCopying,
+        kFULLADDRESS as NSCopying,
+        kONBOARD as NSCopying,
+        kPHONENUMBER as NSCopying]) as! [String : Any]
+    
+}
+
+
+func updateCurrentUser(withValues: [String : Any], completion: @escaping(_ error: Error?) -> Void){
+    
+    if let dictionary = userDefaults.object(forKey: kCURRENTUSER){
+        
+        let userObject = (dictionary as! NSDictionary).mutableCopy() as! NSDictionary
+        userObject.setValuesForKeys(withValues)
+        
+        FirebaseReference(.User).document(FUser.currentId()).updateData(withValues) { error in
+            
+            completion(error)
+            
+            if error != nil {
+                saveUserLocally(userDictionary: userObject)
+
+            }
+        }
+    }
 }

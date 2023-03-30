@@ -10,7 +10,8 @@ import SwiftUI
 struct DrinkDetailView: View {
     
     @State private var showingAlert = false
-    
+    @State private var showingLogin = false
+
     var drink: Drink
     
     var body: some View {
@@ -56,7 +57,7 @@ struct DrinkDetailView: View {
 //                } label: {
 //                    Text("Add to Basket")
 //                }
-                OrderButton(showAlert: $showingAlert, drink: drink)
+                OrderButton(showAlert: $showingAlert, showLogin: $showingLogin, drink: drink)
                 Spacer()
             }
             .padding(.top, 50)
@@ -82,14 +83,22 @@ struct OrderButton: View{
     
     @ObservedObject var basketListener = BasketListener()
     @Binding var showAlert : Bool
-    
+    @Binding var showLogin : Bool
+
     var drink: Drink
     
     var body: some View{
         
         Button(action: {
-            self.showAlert.toggle()
-            self.addItemtoBasket()
+            
+            if FUser.currentUser() != nil &&
+                FUser.currentUser()!.onBoarding{
+                self.showAlert.toggle()
+                self.addItemtoBasket()
+            }else{
+                self.showLogin.toggle()
+            }
+
         }){
             Text("Add to basket")
         }
@@ -98,6 +107,13 @@ struct OrderButton: View{
         .font(.headline)
         .background(Color.blue)
         .cornerRadius(10)
+        .sheet(isPresented: self.$showLogin){
+            if FUser.currentUser() != nil {
+                FinishRegistrationView()
+            }else{
+                LoginView()
+            }
+        }
     }
     
     private func addItemtoBasket(){
@@ -109,7 +125,7 @@ struct OrderButton: View{
         }else{
             
             orderBasket = OrderBasket()
-            orderBasket.ownerId = "123"
+            orderBasket.ownerId = FUser.currentId()
             orderBasket.id = UUID().uuidString
             
         }
