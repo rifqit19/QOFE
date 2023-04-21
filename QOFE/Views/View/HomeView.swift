@@ -30,7 +30,7 @@ struct HomeView: View {
                 
             }
             
-                .navigationBarTitle(Text("QOFFE"))
+                .navigationBarTitle(Text("QOFE"))
                 .navigationBarItems(
                     leading:
                         Button(action: {
@@ -50,7 +50,7 @@ struct HomeView: View {
                         }, label: {
                             Image("basket").foregroundColor(.blue)
                         })
-                        .sheet(isPresented: $showingBasket){
+                        .fullScreenCover(isPresented: $showingBasket){
                             if FUser.currentUser() != nil &&
                                 FUser.currentUser()!.onBoarding{
                                 OrderBasketView()

@@ -15,94 +15,157 @@ struct LoginView: View {
     
     @State var showingSignup = false
     @State var showingFinishReg = false
-    
+    @State var showingResetPass = false
+
     @Environment(\.presentationMode) var presentationMode
 
     
     var body: some View {
-        VStack{
-            
-            Text(showingSignup ? "Sign Up" : "Sign In")
-                .fontWeight(.heavy )
-                .font(.largeTitle)
-                .padding([.bottom, .top], 20)
-            
-            
-            VStack(alignment: .leading){
+        ZStack{
+            VStack(){
+                ZStack(alignment: .top){
+                    Image("elips_login")
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .background(
+                        Image("elips_login").resizable()
+                    ).ignoresSafeArea()
+                    
+                    HStack{
+                        Button {
+                            presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Image(systemName: "arrow.backward.circle.fill")
+                                 .frame(width: 24,height: 24)
+                                 .foregroundColor(.white)
+                        }
+                        Spacer()
+                    }.padding([.trailing,.leading], 20)
+                }
                 
-                VStack(alignment: .leading){
-                    
-                    Text("Email")
-                        .fontWeight(.light )
-                        .font(.headline)
-                        .foregroundColor(Color.init(.label))
-                        .opacity(0.75)
-                    
-                    TextField("Enter your email...", text: $email)
-                    Divider()
-                    
-                    
-                    Text("Password")
-                        .fontWeight(.light )
-                        .font(.headline)
-                        .foregroundColor(Color.init(.label))
-                        .opacity(0.75)
-                    
-                    SecureField("Enter your password...", text: $password)
-                    
-                    Divider()
-                    
-                    
-                    if showingSignup{
-                        
-                        Text("Repeat Password")
-                            .fontWeight(.light )
-                            .font(.headline)
-                            .foregroundColor(Color.init(.label))
-                            .opacity(0.75)
-                        
-                        SecureField("Repeat password...", text: $repeatPassword)
-                        Divider()
-                        
-                    }
-                    
-                }//end of vstack
-                .padding(.bottom, 15)
+                
+                Spacer()
                 
                 HStack{
                     Spacer()
-                    
-                    Button(action: {
-                        self.resetPassword()
-                    },label:{
-                        Text("Forgot Password?")
-                            .foregroundColor(.gray)
-                            .opacity(0.5)
-                    })
-                    
-                }// end of hstack
+                    Image("ic_qofe_dark").ignoresSafeArea()
+                }
                 
-            }// end of vstack
-            .padding(.horizontal, 6)
+            }//end of vstack
+            .edgesIgnoringSafeArea(.bottom)
             
-            Button(action: {
-                self.showingSignup ? self.signUpUser() : self.loginUser()
-            }, label: {
-                Text(showingSignup ? "Sign Up" : "Sign In")
-                    .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width - 120)
-                    .padding()
-            })//end of button
-            .background(Color.blue)
-            .clipShape(Capsule())
-            .padding(.top, 50)
+            VStack{
+                
+                Image("qofe_logo")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: UIScreen.main.bounds.width / 8)
+                    .padding(.bottom, UIScreen.main.bounds.height / 20)
+                
+                VStack{
+                    
+                    Text(showingSignup ? "Sign Up" : "Sign In")
+                        .font(.title3)
+                        .padding( .bottom, 45)
+                        .foregroundColor(.white)
+
+                    VStack(alignment: .leading){
+
+                        VStack(alignment: .leading){
+
+                            Text("Email")
+                                .fontWeight(.light )
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .opacity(0.75)
+
+                            TextField("Enter your email...", text: $email)
+                                .foregroundColor(.white)
+                                .font(.caption)
+                            Divider().overlay(Color.white)
+
+
+                            Text("Password")
+                                .fontWeight(.light )
+                                .font(.caption)
+                                .foregroundColor(Color.white)
+                                .opacity(0.75)
+
+                            SecureField("Enter your password...", text: $password)
+                                .foregroundColor(.white)
+                                .font(.caption)
+                            Divider().overlay(Color.white)
+
+
+                            if showingSignup{
+
+                                Text("Repeat Password")
+                                    .fontWeight(.light )
+                                    .font(.caption)
+                                    .foregroundColor(Color.white)
+                                    .opacity(0.75)
+
+                                SecureField("Repeat password...", text: $repeatPassword)
+                                    .foregroundColor(.white)
+                                    .font(.caption)
+                                Divider().overlay(Color.white)
+
+                            }
+
+                        }//end of vstack
+                        .padding(.bottom, 14)
+
+                        HStack{
+                            Spacer()
+
+                            Button("Forgot Password?"){
+                                showingResetPass.toggle()
+                                
+                            }.foregroundColor(.white)
+                                .font(.caption)
+                            .fullScreenCover(isPresented: $showingResetPass) {
+                                ForgotPasswordView()
+                            }
+                            
+                            Spacer()
+
+                        }// end of hstack
+
+                    }// end of vstack
+                    .padding(.horizontal, 6)
+
+                    Button(action: {
+                        self.showingSignup ? self.signUpUser() : self.loginUser()
+                    }, label: {
+                        Text(showingSignup ? "Sign Up" : "Sign In")
+                            .foregroundColor(Color("darkBrown"))
+                            .frame(width: UIScreen.main.bounds.width - 170)
+                            .padding()
+                            .font(.subheadline)
+                    })//end of button
+                    .frame(height: 45)
+                    .background(Color.white)
+                    .clipShape(Capsule())
+                    .padding(.top, 50)
+
+                    SignUpView(showingSignup: $showingSignup)
+                        .padding(.top, 8)
+                }// end of vstack
+                .sheet(isPresented: $showingFinishReg) {
+                    FinishRegistrationView()
+    //            }
+
+
+                    
+                }
+                .frame(width: UIScreen.main.bounds.width - 120)
+                .padding(30)
+                .background(Color("brown"))
+                .cornerRadius(20)
+            }
             
             
-            SignUpView(showingSignup: $showingSignup)
-        }// end of vstack
-        .sheet(isPresented: $showingFinishReg) {
-            FinishRegistrationView()
-        }
+            
+        }// end of zstask
     }
     
     private func loginUser(){
@@ -178,18 +241,20 @@ struct SignUpView: View{
     var body: some View{
         
         VStack{
-            Spacer()
+//            Spacer()
             
             HStack{
-                Text(showingSignup ? "Already have an account?" :  "Don't have an Account??")
-                    .foregroundColor(.gray)
+                Text(showingSignup ? "Already have an account?" :  "Don't have an Account?")
+                    .foregroundColor(.white)
                     .opacity(0.5)
+                    .font(.caption)
                 
                 Button(action: {
                     showingSignup.toggle()
                 },label:{
                     Text(showingSignup ? "Sign In" : "Sign Up")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.white)
+                        .font(.caption)
                 })
                 
             }

@@ -10,39 +10,55 @@ import SwiftUI
 struct OrderBasketView: View {
     
     @ObservedObject var basketListener = BasketListener()
+    
+    @Environment(\.presentationMode) var presentationMode
+
+    
     var body: some View {
-        NavigationView{
-            
-            
-            List{
-                Section{
-                    ForEach(self.basketListener.orderBasket?.items ?? []){
-                        drink in
-                        
-                        HStack{
-                            Text(drink.name)
-                            Spacer()
-                            Text("$ \(drink.price.clean)")
-                        }// end of hstack
-                        
-                    }//end of foreach
-                    .onDelete { indexSet in
-                        self.deleteItems(at: indexSet)
-                    }
+        
+        VStack{
+            HStack{
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Image(systemName: "arrow.backward.circle.fill")
+                         .frame(width: 24,height: 24)
+                         .foregroundColor(.black)
                 }
+                Spacer()
+            }.padding([.trailing,.leading], 20)
+            NavigationView{
                 
-                
-                Section{
-                    NavigationLink(destination: CheckoutView()){
-                        Text("Place Order")
+                List{
+                    Section{
+                        ForEach(self.basketListener.orderBasket?.items ?? []){
+                            drink in
+                            
+                            HStack{
+                                Text(drink.name)
+                                Spacer()
+                                Text("$ \(drink.price.clean)")
+                            }// end of hstack
+                            
+                        }//end of foreach
+                        .onDelete { indexSet in
+                            self.deleteItems(at: indexSet)
+                        }
                     }
-                }.disabled(self.basketListener.orderBasket?.items.isEmpty ?? true)
+                    
+                    
+                    Section{
+                        NavigationLink(destination: CheckoutView()){
+                            Text("Place Order")
+                        }
+                    }.disabled(self.basketListener.orderBasket?.items.isEmpty ?? true)
+                    
+                }//end of list
+                .navigationBarTitle("Order")
+                .listStyle(GroupedListStyle())
                 
-            }//end of list
-            .navigationBarTitle("Order")
-            .listStyle(GroupedListStyle())
-            
-        }//end of navigationview
+            }//end of navigationview
+        }
     }
     
     func deleteItems(at offsets: IndexSet){

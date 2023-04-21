@@ -10,6 +10,7 @@
 		45C5A76A020BE10E0F30BC0C /* Pods_QOFE.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ECCA9F460F8C74E09333B50 /* Pods_QOFE.framework */; };
 		4F3BF2D629B624C30026E196 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BF2D529B624C30026E196 /* LoginView.swift */; };
 		4F3BF2D829B655FE0026E196 /* FinishRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3BF2D729B655FE0026E196 /* FinishRegistrationView.swift */; };
+		4F3F7A5329F2AD4A00A7FBA7 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3F7A5229F2AD4A00A7FBA7 /* ForgotPasswordView.swift */; };
 		4F493ECC29D1C19D00DA8AA0 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F493ECB29D1C19D00DA8AA0 /* Launch Screen.storyboard */; };
 		4FA9F03929B4A826001E9816 /* OrderBasket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03829B4A826001E9816 /* OrderBasket.swift */; };
 		4FA9F03B29B4B385001E9816 /* BasketListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9F03A29B4B385001E9816 /* BasketListener.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		4F3BF2D529B624C30026E196 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4F3BF2D729B655FE0026E196 /* FinishRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationView.swift; sourceTree = "<group>"; };
+		4F3F7A5229F2AD4A00A7FBA7 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		4F493ECB29D1C19D00DA8AA0 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4FA9F03829B4A826001E9816 /* OrderBasket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBasket.swift; sourceTree = "<group>"; };
 		4FA9F03A29B4B385001E9816 /* BasketListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketListener.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				4F3BF2D529B624C30026E196 /* LoginView.swift */,
 				4F3BF2D729B655FE0026E196 /* FinishRegistrationView.swift */,
 				4F493ECB29D1C19D00DA8AA0 /* Launch Screen.storyboard */,
+				4F3F7A5229F2AD4A00A7FBA7 /* ForgotPasswordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				4FDDEA0A29B46EEA0057B6CB /* DrinkDetailView.swift in Sources */,
 				4FDDEA0729B3CDA20057B6CB /* DrinkListener.swift in Sources */,
 				4FA9F03F29B4CD73001E9816 /* Extension.swift in Sources */,
+				4F3F7A5329F2AD4A00A7FBA7 /* ForgotPasswordView.swift in Sources */,
 				4FA9F03929B4A826001E9816 /* OrderBasket.swift in Sources */,
 				4FA9F04129B4DA46001E9816 /* CheckoutView.swift in Sources */,
 				4FDDE9F729B39D650057B6CB /* Drink.swift in Sources */,

@@ -14,13 +14,20 @@ struct DrinkItem: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 16){
             
-            Image(drink.imageName)
-                .resizable()
-                .renderingMode(.original)
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 300, height: 170)
-                .cornerRadius(10)
-                .shadow(radius: 10)
+            ZStack(alignment: .center){
+                ProgressView()
+                
+                Image(systemName: "")
+                    .data(url: (URL(string: drink.imageName)!))
+                    .resizable()
+                    .renderingMode(.original)
+                    .scaledToFit()
+                    .frame(width: 300, height: 170)
+                    .cornerRadius(10)
+                    .shadow(radius: 10)
+            }
+            
+            
             
             VStack(alignment: .leading, spacing: 5){
                 Text(drink.name)
