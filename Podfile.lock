@@ -706,10 +706,12 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.2.0)
+  - ToastSwiftUI (0.3.4)
 
 DEPENDENCIES:
   - FirebaseAuth
   - FirebaseFirestore
+  - ToastSwiftUI
 
 SPEC REPOS:
   trunk:
@@ -727,6 +729,7 @@ SPEC REPOS:
     - Libuv-gRPC
     - nanopb
     - PromisesObjC
+    - ToastSwiftUI
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -743,7 +746,8 @@ SPEC CHECKSUMS:
   Libuv-gRPC: 55e51798e14ef436ad9bc45d12d43b77b49df378
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
+  ToastSwiftUI: 3b9111e37719e4b1c4a4fdbc52a664ec8e676c0e
 
-PODFILE CHECKSUM: 6be8271bdc2bb4f31fced2d05a540f7e00dd54dc
+PODFILE CHECKSUM: ef6fc5f692f53b680d762697863b2f9f5d4a8df0
 
 COCOAPODS: 1.12.0

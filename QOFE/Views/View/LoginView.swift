@@ -35,11 +35,14 @@ struct LoginView: View {
                             presentationMode.wrappedValue.dismiss()
                         } label: {
                             Image(systemName: "arrow.backward.circle.fill")
-                                 .frame(width: 24,height: 24)
+                                 .frame(width: 35,height: 24)
                                  .foregroundColor(.white)
+                                 .scaledToFill()
                         }
                         Spacer()
                     }.padding([.trailing,.leading], 20)
+                        .padding([.top], 10)
+                    
                 }
                 
                 
@@ -63,7 +66,7 @@ struct LoginView: View {
                 
                 VStack{
                     
-                    Text(showingSignup ? "Sign Up" : "Sign In")
+                    Text(showingSignup ? "Daftar" : "Masuk")
                         .font(.title3)
                         .padding( .bottom, 45)
                         .foregroundColor(.white)
@@ -78,19 +81,19 @@ struct LoginView: View {
                                 .foregroundColor(.white)
                                 .opacity(0.75)
 
-                            TextField("Enter your email...", text: $email)
+                            TextField("Masukan email...", text: $email)
                                 .foregroundColor(.white)
                                 .font(.caption)
                             Divider().overlay(Color.white)
 
 
-                            Text("Password")
+                            Text("Kata Sandi")
                                 .fontWeight(.light )
                                 .font(.caption)
                                 .foregroundColor(Color.white)
                                 .opacity(0.75)
 
-                            SecureField("Enter your password...", text: $password)
+                            SecureField("Masukan kata sandi...", text: $password)
                                 .foregroundColor(.white)
                                 .font(.caption)
                             Divider().overlay(Color.white)
@@ -98,13 +101,13 @@ struct LoginView: View {
 
                             if showingSignup{
 
-                                Text("Repeat Password")
+                                Text("Konfirmasi Kata Sandi")
                                     .fontWeight(.light )
                                     .font(.caption)
                                     .foregroundColor(Color.white)
                                     .opacity(0.75)
 
-                                SecureField("Repeat password...", text: $repeatPassword)
+                                SecureField("Konfirmasi kata sandi...", text: $repeatPassword)
                                     .foregroundColor(.white)
                                     .font(.caption)
                                 Divider().overlay(Color.white)
@@ -117,7 +120,7 @@ struct LoginView: View {
                         HStack{
                             Spacer()
 
-                            Button("Forgot Password?"){
+                            Button("Lupa Kata Sandi?"){
                                 showingResetPass.toggle()
                                 
                             }.foregroundColor(.white)
@@ -136,7 +139,7 @@ struct LoginView: View {
                     Button(action: {
                         self.showingSignup ? self.signUpUser() : self.loginUser()
                     }, label: {
-                        Text(showingSignup ? "Sign Up" : "Sign In")
+                        Text(showingSignup ? "Daftar" : "Masuk")
                             .foregroundColor(Color("darkBrown"))
                             .frame(width: UIScreen.main.bounds.width - 170)
                             .padding()
@@ -166,6 +169,7 @@ struct LoginView: View {
             
             
         }// end of zstask
+        .background(Color.white)
     }
     
     private func loginUser(){
@@ -244,7 +248,7 @@ struct SignUpView: View{
 //            Spacer()
             
             HStack{
-                Text(showingSignup ? "Already have an account?" :  "Don't have an Account?")
+                Text(showingSignup ? "Sudah punya akun?" :  "Belum punya akun?")
                     .foregroundColor(.white)
                     .opacity(0.5)
                     .font(.caption)
@@ -252,7 +256,7 @@ struct SignUpView: View{
                 Button(action: {
                     showingSignup.toggle()
                 },label:{
-                    Text(showingSignup ? "Sign In" : "Sign Up")
+                    Text(showingSignup ? "Masuk" : "Daftar")
                         .foregroundColor(.white)
                         .font(.caption)
                 })

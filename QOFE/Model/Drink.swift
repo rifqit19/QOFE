@@ -12,7 +12,7 @@ enum Category: String, CaseIterable, Codable, Hashable{
     
     case hot
     case cold
-    case filter
+    case meal
     
 }
 
@@ -70,13 +70,13 @@ let drinkData = [
         
                     
     //FILTER
-    Drink(id: UUID().uuidString, name: "Filter Classic", imageName: "filter coffee", category: Category.filter, description: "Filter coffee brewing involves pouring hot water over coffee grounds. Gravity then pulls the water through the grounds, facilitating extraction, and dispenses it into a mug or carafe placed below.", price: 2.00),
-    
-    Drink(id: UUID().uuidString, name: "Filter Decaf", imageName: "decaf", category: Category.filter, description: "Filter coffee brewing involves pouring hot water over coffee grounds. Gravity then pulls the water through the grounds, facilitating extraction, and dispenses it into a mug or carafe placed below.", price: 2.00),
-
-    Drink(id: UUID().uuidString, name: "Cold Brew", imageName: "cold brew", category: Category.filter, description: "Cold brew is really as simple as mixing ground coffee with cool water and steeping the mixture in the fridge overnight.", price: 2.50),
-
-    Drink(id: UUID().uuidString, name: "Cold Brew Latte", imageName: "brew latte", category: Category.filter, description: "To make a weaker brew, add 2 parts cold brew coffee to 1 part hot water. For a stronger brew, use a 4:1 ratio. Cold Brew Concentrate for Iced Lattes: use 3 ounces coffee beans per 2.5 cups of water.", price: 2.00),
+//    Drink(id: UUID().uuidString, name: "Filter Classic", imageName: "filter coffee", category: Category.filter, description: "Filter coffee brewing involves pouring hot water over coffee grounds. Gravity then pulls the water through the grounds, facilitating extraction, and dispenses it into a mug or carafe placed below.", price: 2.00),
+//
+//    Drink(id: UUID().uuidString, name: "Filter Decaf", imageName: "decaf", category: Category.filter, description: "Filter coffee brewing involves pouring hot water over coffee grounds. Gravity then pulls the water through the grounds, facilitating extraction, and dispenses it into a mug or carafe placed below.", price: 2.00),
+//
+//    Drink(id: UUID().uuidString, name: "Cold Brew", imageName: "cold brew", category: Category.filter, description: "Cold brew is really as simple as mixing ground coffee with cool water and steeping the mixture in the fridge overnight.", price: 2.50),
+//
+//    Drink(id: UUID().uuidString, name: "Cold Brew Latte", imageName: "brew latte", category: Category.filter, description: "To make a weaker brew, add 2 parts cold brew coffee to 1 part hot water. For a stronger brew, use a 4:1 ratio. Cold Brew Concentrate for Iced Lattes: use 3 ounces coffee beans per 2.5 cups of water.", price: 2.00),
 
     
     

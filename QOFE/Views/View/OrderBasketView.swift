@@ -35,9 +35,15 @@ struct OrderBasketView: View {
                             drink in
                             
                             HStack{
-                                Text(drink.name)
-                                Spacer()
-                                Text("$ \(drink.price.clean)")
+                                CustomImageViewBasket(urlString: drink.imageName)
+                                    .background(Color("lightBrown"))
+                                    .cornerRadius(10, corners: .allCorners)
+                                VStack(alignment:.leading){
+                                    Text(drink.name)
+                                        .padding(.bottom, 4)
+                                    Text("Rp. \(drink.price.clean)")
+                                    Spacer()
+                                }.padding()
                             }// end of hstack
                             
                         }//end of foreach

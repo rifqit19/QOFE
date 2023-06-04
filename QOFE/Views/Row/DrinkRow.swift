@@ -16,8 +16,9 @@ struct DrinkRow: View {
         
         VStack(alignment: .leading){
             Text(self.categoryname)
-                .font(.title)
+                .font(.title2)
                 .bold()
+                .foregroundColor(self.categoryname == "Cold" ? .white : .black)
             
             ScrollView(.horizontal, showsIndicators: false){
                 
@@ -27,8 +28,11 @@ struct DrinkRow: View {
                         NavigationLink(destination: DrinkDetailView(drink: drink)){
                             
                             DrinkItem(drink: drink)
-                                .frame(width: 300)
-                                .padding(.trailing, 30)
+                                .frame(width: 200)
+                                .padding(.trailing, 20)
+                                .padding(.leading, 10)
+
+                        
                             
                         }
                         

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ToastSwiftUI
 
 struct DrinkDetailView: View {
     
@@ -14,60 +15,99 @@ struct DrinkDetailView: View {
 
     var drink: Drink
     
+    @State private var isPresentingToast = false
+    
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false){
+        ZStack{
             
-            ZStack(alignment: .bottom){
-                
-                Image(drink.imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                
-                Rectangle()
-                    .frame(height: 80)
-                    .foregroundColor(.black)
-                    .opacity(0.35)
-                    .blur(radius: 10)
-                
-                HStack(){
-                    VStack(alignment: .leading, spacing: 8){
-                        Text(drink.name)
-                            .foregroundColor(.white)
-                            .font(.largeTitle)
-                    }
-                    .padding(.leading)
-                    .padding(.bottom)
-                    
+            VStack{
+                Spacer()
+                HStack{
                     Spacer()
-                }// end of hstack
-                
-            }// end of zstack
-            .listRowInsets(EdgeInsets())
-            
-            Text(drink.description)
-                .foregroundColor(.primary)
-                .font(.body)
-                .lineLimit(5)
-                .padding()
-            
-            HStack{
-                Spacer()
-//                Button {
-//                    showingAlert.toggle()
-//                } label: {
-//                    Text("Add to Basket")
-//                }
-                OrderButton(showAlert: $showingAlert, showLogin: $showingLogin, drink: drink)
-                Spacer()
+                    Image("ic_qofe_dark").ignoresSafeArea()
+                }
             }
-            .padding(.top, 50)
-            
-        }//end of ScrollView
-        .edgesIgnoringSafeArea(.top)
-        .navigationBarHidden(false)
-        .alert(isPresented: $showingAlert){
-            Alert(title: Text("Added to Basket!"), dismissButton: .default(Text("OK")))
-        }
+                .ignoresSafeArea()
+            ScrollView(.vertical, showsIndicators: false){
+                
+                ZStack{
+                    
+                    VStack{
+                        ZStack(alignment: .bottom){
+                            
+                            ZStack(alignment: .center){
+//                                Image(systemName: "")
+//                                    .data(url: (URL(string: drink.imageName)!))
+//                                    .resizable()
+//                                    .scaledToFit()
+//                                    .padding(.bottom, 50)
+//                                    .padding(.top, 20)
+                                
+                                CustomImageViewDetail(urlString: drink.imageName)
+
+                            }.padding(50)
+                             .background(Color("darkBrown"))
+                             
+
+                            
+                            Rectangle()
+                                .frame(height: 80)
+                                .foregroundColor(.white)
+                                .cornerRadius(20, corners: [.topLeft, .topRight])
+                            
+                            HStack(){
+                                VStack(alignment: .leading){
+                                    Text(drink.name)
+                                        .foregroundColor(.black)
+                                        .font(.title)
+                                        .bold()
+                                    
+                                    Text("Rp. \(drink.price.clean)")
+                                        .foregroundColor(.black)
+                                        .font(.title2)
+                                    
+
+                                    
+                                }
+                                .padding([.leading, .top], 20)
+                                
+                                Spacer()
+                            }// end of hstack
+                            
+                        }// end of zstack
+                        .listRowInsets(EdgeInsets())
+                        
+                        Text(drink.description)
+                            .foregroundColor(.black)
+                            .font(.body)
+                            .padding(15)
+                                            
+                        VStack{
+                            Spacer()
+                            HStack{
+                                Spacer()
+                //                Button {
+                //                    showingAlert.toggle()
+                //                } label: {
+                //                    Text("Add to Basket")
+                //                }
+                                OrderButton(showAlert: $showingAlert, showLogin: $showingLogin, drink: drink)
+                                Spacer()
+                            }
+                            .padding([.top, .bottom], 30)
+                        }
+                        
+                    }
+                }
+                
+                
+            }//end of ScrollView
+            .edgesIgnoringSafeArea([.top, .bottom])
+            .navigationBarHidden(false)
+            .toast(isPresenting: $showingAlert, message: "Berhasil \nmenambahkan", icon: .success, textColor: Color("darkBrown"))
+        }.background(Color.white)
+        
+        
         
     }
 }
@@ -100,13 +140,17 @@ struct OrderButton: View{
             }
 
         }){
-            Text("Add to basket")
+            Text("Masukan Keranjang")
+                .foregroundColor(Color.white)
+                .frame(width: UIScreen.main.bounds.width - 100)
+                .padding()
+                .font(.subheadline)
         }
-        .frame(width: 200, height: 50)
-        .foregroundColor(.white)
-        .font(.headline)
-        .background(Color.blue)
         .cornerRadius(10)
+        .frame(height: 45)
+        .background(Color("brown"))
+        .clipShape(Capsule())
+        .padding(.top, 50)
         .sheet(isPresented: self.$showLogin){
             if FUser.currentUser() != nil {
                 FinishRegistrationView()

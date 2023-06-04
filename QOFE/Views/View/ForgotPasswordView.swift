@@ -38,6 +38,7 @@ struct ForgotPasswordView: View {
                         }
                         Spacer()
                     }.padding([.trailing,.leading], 20)
+                        .padding([.top], 10)
                 }
                 
                 
@@ -113,6 +114,7 @@ struct ForgotPasswordView: View {
             
             
         }// end of zstask
+        .background(Color.white)
     }
     
     private func resetPassword (){
