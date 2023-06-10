@@ -8,19 +8,31 @@
 import SwiftUI
 import Foundation
 import Combine
+import ToastSwiftUI
 
 
 struct HomeView: View {
     
     @ObservedObject var drinkListener = DrinkListener()
     @State private var showingBasket = false
-    
+    @State private var showingProfil = false
+
+    private var numberOfImages = 4
+    let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    @State private var currentIndex = 0
+
     
     var categories: [String : [Drink]]{
         .init(grouping: drinkListener.drinks, by: {$0.category.rawValue})
     }
     
+    @State private var showingAlert = false
+    @State private var toastMessage: String?
     
+    @State private var name = FUser.currentUser() != nil ? FUser.currentUser()?.fullName ?? "kamu..." : "kamu belum login"
+    
+    @State private var showDialog = false
+
 
     var body: some View {
         
@@ -32,17 +44,36 @@ struct HomeView: View {
                     
                     HStack{
                         Button {
-                            FUser.logoutCurrentUser { error in
-                                print("error loging out user, ", error?.localizedDescription)
-                            }
+                            
+                                self.showingProfil.toggle()
+                            
                         } label: {
-                            Image(systemName: "rectangle.portrait.and.arrow.right.fill")
+                            Image(systemName: "person.circle.fill")
                                  .frame(width: 35,height: 24)
                                  .foregroundColor(.white)
                                  .scaledToFill()
+                        }.fullScreenCover(isPresented: $showingProfil){
+                            if FUser.currentUser() != nil {
+                                DetailProfilView().onDisappear(){
+                                    name = FUser.currentUser() != nil ? FUser.currentUser()?.fullName ?? "kamu..." : "kamu belum login"
+                                }
+                            }else{
+                                LoginView().onDisappear(){
+                                    name = FUser.currentUser() != nil ? FUser.currentUser()?.fullName ?? "kamu..." : "kamu belum login"
+                                }
+                            }
                         }
-                        Spacer()
+
                         
+                        
+                        Text("Hai, \(name)")
+                            .font(.subheadline)
+                            .foregroundColor(.white)
+                            .onAppear(){
+                                name = FUser.currentUser() != nil ? FUser.currentUser()?.fullName ?? "kamu..." : "kamu belum login"
+                            }
+                        
+                        Spacer()
                         Button {
                             self.showingBasket.toggle()
 
@@ -56,93 +87,58 @@ struct HomeView: View {
                                 FUser.currentUser()!.onBoarding{
                                 OrderBasketView()
                             }else if FUser.currentUser() != nil {
-                                FinishRegistrationView()
+                                FinishRegistrationView().onDisappear(){
+                                    name = FUser.currentUser() != nil ? FUser.currentUser()?.fullName ?? "kamu..." : "kamu belum login"
+                                }
                             }else{
-                                LoginView()
+                                LoginView().onDisappear(){
+                                    name = FUser.currentUser() != nil ? FUser.currentUser()?.fullName ?? "kamu..." : "kamu belum login"
+                                }
                             }
                         }
 
-                        Button {
-
-                        } label: {
-                            Image(systemName: "person.circle.fill")
-                                 .frame(width: 35,height: 24)
-                                 .foregroundColor(.white)
-                                 .scaledToFill()
-                        }
-                    }.padding([.trailing,.leading], 20)
-                        .padding([.top], 10)
+                    }//end of hstack
+                    .padding([.trailing,.leading], 20)
+                        .padding([.top, ], 10)
+                        .padding([.leading, .trailing], 5)
 
                     ScrollView{
                         
                         VStack(alignment: .leading){
-                            
-                                ScrollView(.horizontal){
-                                                ImageCarouselView()
-                                        .frame(width: UIScreen.main.bounds.width-30, height: UIScreen.main.bounds.height / 4.5)
-                                                    .cornerRadius(20, corners: .allCorners)
-                                                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                                            }
+                                TabView(selection: $currentIndex){
+                                    ForEach(0..<numberOfImages){ num in
                                         
-                                
-                                        
-                            
-                            ForEach(categories.keys.sorted(), id: \String.self){
-                                key in
-
-                                
+                                        Image("\(num)")
+                                            .resizable()
+                                            .scaledToFill()
+                                            .tag(num)
+                                    }
+                                }.tabViewStyle(PageTabViewStyle())
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    .padding([.leading, .trailing], 20)
+                                    .shadow(radius: 10)
+                                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 2.5)
+                                    .onReceive(timer) { _ in
+                                        withAnimation{
+                                            currentIndex = currentIndex < numberOfImages ? currentIndex + 1 : 0
+                                        }
+                                    }
+                            ForEach(categories.keys.sorted(), id: \String.self){ key in
                                 DrinkRow(categoryname: "\(key)".capitalized, drinks: self.categories[key]!)
                                     .padding(.top)
                                     .padding(.bottom)
-
-
                             }
                         }.padding(.all)
-                        }
+                    } // end off scrollview
+                    .clipped()
+                    .edgesIgnoringSafeArea(.bottom)
+                    
                 }
             }.background(Color.white)
-
         }
-
-
-//            NavigationView{
-//
-//
-//                    .navigationBarTitle(Text("QOFE"))
-//                    .navigationBarItems(
-//                        leading:
-//                            Button(action: {
-//                                //code
-//                                FUser.logoutCurrentUser { error in
-//                                    print("error loging out user, ", error?.localizedDescription)
-//                                }
-//                            }, label: {
-//                                Text("Logout")
-//                            })
-//
-//
-//                        ,trailing:
-//                            Button(action: {
-//                                //code
-//                                self.showingBasket.toggle()
-//                            }, label: {
-//                                Image("basket").foregroundColor(.blue)
-//                            })
-//                            .fullScreenCover(isPresented: $showingBasket){
-//                                if FUser.currentUser() != nil &&
-//                                    FUser.currentUser()!.onBoarding{
-//                                    OrderBasketView()
-//                                }else if FUser.currentUser() != nil {
-//                                    FinishRegistrationView()
-//                                }else{
-//                                    LoginView()
-//                                }
-//                            }
-//                    )
-//                    .blendMode(.darken)
-//
-//            }.background(Color.red)
-    }}
+    }
+    
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -176,34 +172,4 @@ struct BGView: View{
         }//end of vstack
         .edgesIgnoringSafeArea([.bottom, .leading, .trailing])
     }
-}
-
-
-struct CarouselView: View{
-    @State private var index = 0
-
-    var body: some View {
-            VStack{
-                TabView(selection: $index) {
-                    ForEach((0..<3), id: \.self) { index in
-                        CarouselItem()
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-                
-                HStack(spacing: 2) {
-                    ForEach((0..<3), id: \.self) { index in
-                        Circle()
-                            .fill(index == self.index ? Color.white : Color.white.opacity(0.5))
-                            .frame(width: 8, height: 8)
-
-                    }
-                }
-                .padding([.leading, .trailing, .bottom])
-               
-                
-                
-            }
-            .frame(height: 180)
-        }
 }

@@ -97,11 +97,12 @@ class FUser{
     }
     
     class func logoutCurrentUser(completion: (_ error: Error?)-> Void){
+        
         do {
             try Auth.auth().signOut()
             userDefaults.removeObject(forKey: kCURRENTUSER)
             userDefaults.synchronize()
-            completion(nil)
+            completion(Error.self as? Error)
         }catch let error as Error{
             completion(error)
         }

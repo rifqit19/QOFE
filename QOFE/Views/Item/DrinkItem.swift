@@ -43,6 +43,7 @@ struct DrinkItem: View {
         .padding(.all)
         .background(Color("brown"))
         .cornerRadius(20)
+        .shadow(radius: 10)
 
     }
 }

@@ -19,6 +19,8 @@ struct DrinkRow: View {
                 .font(.title2)
                 .bold()
                 .foregroundColor(self.categoryname == "Cold" ? .white : .black)
+                .shadow(radius: 10)
+                .padding(.leading, 20)
             
             ScrollView(.horizontal, showsIndicators: false){
                 
@@ -31,14 +33,12 @@ struct DrinkRow: View {
                                 .frame(width: 200)
                                 .padding(.trailing, 20)
                                 .padding(.leading, 10)
-
-                        
                             
                         }
                         
                     }
-                }
-            }
+                }.padding(35)
+            }.padding(-20)
             
             
         }

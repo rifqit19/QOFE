@@ -19,9 +19,15 @@ struct CheckoutView: View {
     @State private var showingPaymentAlert = false
     
     var totalPrice: Double{
-        let total = basketListener.orderBasket.total
-        let tipValue = total / 1000 * Double(Self.tipAmounts[tipAmount])
-        return total + tipValue
+        if let total = basketListener.orderBasket?.total {
+            // Use the total value here
+            let tipValue = total / 1000 * Double(Self.tipAmounts[tipAmount])
+            return total + tipValue
+        } else {
+            // Handle the case when the total is nil
+            return 0.0
+
+        }
     }
     
     var body: some View {

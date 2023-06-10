@@ -26,7 +26,7 @@ struct ImageCarouselView: View {
                     .scaledToFill()
             }
         }
-        .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        .tabViewStyle(PageTabViewStyle())
                     
                     .onReceive(timer, perform: { _ in
                         withAnimation {

@@ -38,6 +38,13 @@ extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
+    
+//    func customDialog(
+//        presentationManager: DialogPresentation
+//    ) -> some View {
+//        self.modifier(CustomDialog(presentationManager: presentationManager))
+//    }
+
 }
 
 struct RoundedCorner: Shape {
@@ -51,4 +58,12 @@ struct RoundedCorner: Shape {
     }
 }
 
+
+
+private extension UIScrollView {
+    override open var clipsToBounds: Bool {
+        get { false }
+        set {}
+    }
+}
 
