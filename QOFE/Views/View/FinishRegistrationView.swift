@@ -209,6 +209,11 @@ struct FinishRegistrationView: View {
                 return
             }
             
+            downloadUserFromFirestore(userId: FUser.currentId(), email: FUser.currentUser()?.email ?? " ") { error in
+
+                
+            }
+            
             self.presentationMode.wrappedValue.dismiss()
         }
         

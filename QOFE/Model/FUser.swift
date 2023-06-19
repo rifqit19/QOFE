@@ -127,7 +127,7 @@ func downloadUserFromFirestore(userId: String, email: String, completion: @escap
         
         completion(error)
     }
-}
+}   
 
 func saveUserToFirestore(fUser: FUser){
     FirebaseReference(.User).document(fUser.id).setData(userDictionaryFrom(user: fUser)){ error in

@@ -44,7 +44,7 @@ struct OrderBasketView: View {
                         }
                         Spacer()
                         
-                    }.padding([.trailing,.leading], 20)
+                    }.padding([.trailing,.leading], 10)
                 }
                 
                 ZStack{
@@ -86,7 +86,7 @@ struct OrderBasketView: View {
                         }, label: {
                             Text("Buat Pesanan")
                                 .foregroundColor(.white)
-                                .frame(width: UIScreen.main.bounds.width - 170)
+                                .frame(width: UIScreen.main.bounds.width / 1.2)
                                 .padding()
                                 .font(.subheadline)
                         })//end of button
@@ -96,7 +96,9 @@ struct OrderBasketView: View {
                         .padding(.top, 50)
                         .disabled(self.basketListener.orderBasket?.items.isEmpty ?? true)
                         .fullScreenCover(isPresented: $showingCheckout){
-                            CheckoutView()
+                            CheckoutView().onDisappear(){
+                                
+                            }
                         }
 
                     }
@@ -122,16 +124,19 @@ struct BasketBgView: View{
     
     var body: some View{
         
-        VStack(){
-            Spacer()
+        ZStack{
             
-            HStack{
+            VStack(){
                 Spacer()
-                Image("ic_qofe_dark").ignoresSafeArea()
-            }
-            
-        }//end of vstack
-        .edgesIgnoringSafeArea([.bottom, .leading, .trailing])
+                
+                HStack{
+                    Spacer()
+                    Image("ic_qofe_dark").ignoresSafeArea()
+                }
+                
+            }//end of vstack
+            .edgesIgnoringSafeArea([.bottom, .leading, .trailing])
+        }
     }
 }
 

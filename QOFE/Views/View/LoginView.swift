@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ToastSwiftUI
 
 struct LoginView: View {
     
@@ -18,8 +19,11 @@ struct LoginView: View {
     @State var showingResetPass = false
 
     @Environment(\.presentationMode) var presentationMode
-
     
+    @State private var isPresentingToastSuccess = false
+    @State private var isPresentingToastError = false
+    @State private var messageToast = ""
+
     var body: some View {
         ZStack{
             VStack(){
@@ -153,8 +157,10 @@ struct LoginView: View {
                     SignUpView(showingSignup: $showingSignup)
                         .padding(.top, 8)
                 }// end of vstack
-                .sheet(isPresented: $showingFinishReg) {
-                    FinishRegistrationView()
+                .fullScreenCover(isPresented: $showingFinishReg) {
+                    FinishRegistrationView().onDisappear(){
+                        presentationMode.wrappedValue.dismiss()
+                    }
     //            }
 
 
@@ -170,6 +176,8 @@ struct LoginView: View {
             
         }// end of zstask
         .background(Color.white)
+        .toast(isPresenting: $isPresentingToastSuccess, message: messageToast, icon: .success, textColor: Color("darkBrown"))
+        .toast(isPresenting: $isPresentingToastError, message: messageToast, icon: .error, textColor: Color("darkBrown"))
     }
     
     private func loginUser(){
@@ -177,58 +185,74 @@ struct LoginView: View {
             FUser.loginUserWith(email: email, password: password) { error, isEmailVerified in
                 if error != nil{
                     print("error loging in the user: ", error!.localizedDescription)
+                    messageToast = error!.localizedDescription
+                    isPresentingToastError.toggle()
                     return
                 }
                 
-//                print("user login successful, email is verified: ", isEmailVerified)
-                if FUser.currentUser() != nil && FUser.currentUser()!.onBoarding{
-                    self.presentationMode.wrappedValue.dismiss()
+                print("user login successful, email is verified: ", isEmailVerified)
+                if isEmailVerified{
+                    if FUser.currentUser() != nil && FUser.currentUser()!.onBoarding{
+                        self.presentationMode.wrappedValue.dismiss()
+                    }else{
+                        self.showingFinishReg.toggle()
+                    }
+
                 }else{
-                    self.showingFinishReg.toggle()
+                    messageToast = "email belum diverifikasi"
+                    isPresentingToastError.toggle()
+
                 }
                 
             }
+        }else{
+            messageToast = "Email dan Kata sandi harus diisi"
+            isPresentingToastError.toggle()
+
         }
     }
     
     private func signUpUser(){
         if email != "" && password != "" && repeatPassword != ""{
             if password == repeatPassword{
-                
-                FUser.registerUserWith(email: email, password: password) { error in
-                    if error != nil{
-                        print("Error registering user: ", error!.localizedDescription)
-                        return
-                    }
-                    print("user has been created")
-                    // go back to the app
-                    //check ig user onboarding is done
-                }
+                if password == repeatPassword{
+                    
+                    FUser.registerUserWith(email: email, password: password) { error in
+                        if error != nil{
+                            print("Error registering user: ", error!.localizedDescription)
+                            messageToast = error!.localizedDescription
+                            isPresentingToastError.toggle()
+                            return
+                        }
+                        print("user has been created")
+                        messageToast = "Akun berhasil dibuat \nsilahkan konfirmasi email"
+                        isPresentingToastSuccess.toggle()
+                        email = ""
+                        password = ""
+                        repeatPassword = ""
 
+
+                        // go back to the app
+                        //check ig user onboarding is done
+                    }
+
+                }else{
+                    print("password dont match")
+                    messageToast = "Password tidak sesuai"
+                    isPresentingToastError.toggle()
+                }
             }else{
-                print("password dont match")
+                messageToast = "Password tidak sama"
+                isPresentingToastError.toggle()
+
             }
         }else{
             print("Email and password must be set")
+            messageToast = "Email dan Kata sandi harus diisi"
+            isPresentingToastError.toggle()
         }
     }
     
-    private func resetPassword (){
-        
-        if email != "" {
-            FUser.resetPassword(email: email) { error in
-                if error != nil {
-                    print("error sending reset password ", error?.localizedDescription)
-                    return
-                }
-                print("please check your email")
-            }
-
-        }else{
-            print("email is empty")
-        }
-    }
-
 }
 
 struct LoginView_Previews: PreviewProvider {

@@ -52,6 +52,7 @@ struct HomeView: View {
                                  .frame(width: 35,height: 24)
                                  .foregroundColor(.white)
                                  .scaledToFill()
+                                 
                         }.fullScreenCover(isPresented: $showingProfil){
                             if FUser.currentUser() != nil {
                                 DetailProfilView().onDisappear(){
@@ -63,8 +64,6 @@ struct HomeView: View {
                                 }
                             }
                         }
-
-                        
                         
                         Text("Hai, \(name)")
                             .font(.subheadline)

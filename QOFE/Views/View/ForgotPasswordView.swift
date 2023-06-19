@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ToastSwiftUI
 
 struct ForgotPasswordView: View {
     @State var email: String = ""
@@ -14,6 +15,10 @@ struct ForgotPasswordView: View {
     
     @State var showingSignup = false
     @State var showingFinishReg = false
+    
+    @State private var isPresentingToastSuccess = false
+    @State private var isPresentingToastError = false
+    @State private var messageToast = ""
     
     @Environment(\.presentationMode) var presentationMode
 
@@ -93,7 +98,7 @@ struct ForgotPasswordView: View {
                     Button(action: {
                         self.resetPassword()
                     }, label: {
-                        Text("Send Email")
+                        Text("Kirim Email")
                             .foregroundColor(Color("darkBrown"))
                             .frame(width: UIScreen.main.bounds.width - 170)
                             .padding()
@@ -115,6 +120,8 @@ struct ForgotPasswordView: View {
             
         }// end of zstask
         .background(Color.white)
+        .toast(isPresenting: $isPresentingToastSuccess, message: messageToast, icon: .success, textColor: Color("darkBrown"))
+        .toast(isPresenting: $isPresentingToastError, message: messageToast, icon: .error, textColor: Color("darkBrown"))
     }
     
     private func resetPassword (){
@@ -123,13 +130,19 @@ struct ForgotPasswordView: View {
             FUser.resetPassword(email: email) { error in
                 if error != nil {
                     print("error sending reset password ", error?.localizedDescription)
+                    messageToast = error!.localizedDescription
+                    isPresentingToastError.toggle()
                     return
                 }
                 print("please check your email")
+                messageToast = "cek email anda"
+                isPresentingToastSuccess.toggle()
             }
 
         }else{
             print("email is empty")
+            messageToast = "email kosong"
+            isPresentingToastError.toggle()
         }
     }
 
